@@ -1,0 +1,113 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Add New Cattle</h2>
+
+  <div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+
+  <form (ngSubmit)="addCattle()" #cattleForm="ngForm" novalidate>
+    <div class="mb-3" *ngIf="id !== null">
+      <label for="id" class="form-label">ID</label>
+      <input
+        type="text"
+        id="id"
+        name="id"
+        class="form-control"
+        [(ngModel)]="id"
+        readonly
+      />
+    </div>
+    <div class="mb-3">
+      <label for="breed" class="form-label">Breed *</label>
+      <input
+        type="text"
+        id="breed"
+        name="breed"
+        class="form-control"
+        [(ngModel)]="model.breed"
+        required
+        #breed="ngModel"
+        [class.is-invalid]="breed.invalid && (breed.dirty || breed.touched)"
+      />
+      <div class="invalid-feedback">Breed is required.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="weight" class="form-label">Weight (kg) *</label>
+      <input
+        type="number"
+        id="weight"
+        name="weight"
+        class="form-control"
+        [(ngModel)]="model.weight"
+        required
+        min="1"
+        #weight="ngModel"
+        [class.is-invalid]="weight.invalid && (weight.dirty || weight.touched)"
+      />
+      <div class="invalid-feedback">Please enter a valid weight (≥ 1).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price ($) *</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        class="form-control"
+        [(ngModel)]="model.price"
+        required
+        min="0"
+        step="0.01"
+        #price="ngModel"
+        [class.is-invalid]="price.invalid && (price.dirty || price.touched)"
+      />
+      <div class="invalid-feedback">Please enter a valid price (≥ 0).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age (years) *</label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        class="form-control"
+        [(ngModel)]="model.age"
+        required
+        min="0"
+        #age="ngModel"
+        [class.is-invalid]="age.invalid && (age.dirty || age.touched)"
+      />
+      <div class="invalid-feedback">Please enter a valid age (≥ 0).</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL</label>
+      <input
+        type="url"
+        id="image"
+        name="image"
+        class="form-control"
+        [(ngModel)]="model.image"
+        placeholder="https://example.com/image.jpg"
+      />
+    </div>
+
+    <div class="form-check mb-4">
+      <input
+        type="checkbox"
+        id="available"
+        name="available"
+        class="form-check-input"
+        [(ngModel)]="model.available"
+      />
+      <label for="available" class="form-check-label">Available</label>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loading || cattleForm.invalid"
+    >
+      {{ loading ? "Adding..." : "Add Cattle" }}
+    </button>
+  </form>
+</div>

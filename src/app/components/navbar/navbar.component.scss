@@ -1,0 +1,32 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  
+    .app-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  
+    .spacer {
+      flex: 1 1 auto;
+    }
+  
+    a, button {
+      color: rgb(19, 18, 18);
+      text-transform: none;
+      font-weight: 500;
+    }
+  
+    mat-icon {
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+  }
+  

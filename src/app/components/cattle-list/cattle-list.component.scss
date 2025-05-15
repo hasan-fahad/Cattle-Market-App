@@ -1,0 +1,109 @@
+.cattle-card {
+  display: flex;
+  flex-direction: row;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  eader-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin: 0;
+  }
+  
+  .add {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 8px rgb(13 110 253 / 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .add:hover {
+    background-color: #0b5ed7;
+    box-shadow: 0 6px 12px rgb(11 94 215 / 0.5);
+  }
+
+  .cattle-img-wrapper {
+    position: relative;
+    width: 40%;
+    max-width: 250px;
+    min-height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .card-body {
+    width: 60%;
+    padding: 1.25rem;
+  }
+
+  .cattle-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+    margin: 50px;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+  }
+
+  .cattle-btn {
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-width: 2px;
+    width: 100%;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .cattle-card {
+    flex-direction: column;
+
+    .cattle-img-wrapper,
+    .card-body {
+      width: 100%;
+    }
+
+    .cattle-img-wrapper {
+      height: 200px;
+    }
+  }
+}

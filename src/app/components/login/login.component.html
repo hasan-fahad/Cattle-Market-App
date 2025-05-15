@@ -1,0 +1,74 @@
+<div class="login-container">
+  <div class="login-image-container">
+    <div class="image-overlay"></div>
+    <div class="welcome-text">
+      <h1>Eid Mubarak!</h1>
+      <p>Welcome to the Cattle Market Management System</p>
+      <div class="festive-decoration">
+        <div class="lantern"></div>
+        <div class="moon"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-form-container">
+    <mat-card class="login-card">
+      <div class="card-header">
+        <img src="cattle-logo.jpg" alt="Eid Logo" class="logo" />
+        <h2>Happy Eid-ul-Adha</h2>
+        <p>Manage your cattle business with ease</p>
+      </div>
+
+      <mat-divider class="divider"></mat-divider>
+
+      <mat-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              formControlName="username"
+              placeholder="Enter your username"
+            />
+
+            <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              [type]="showPassword ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Enter your password"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="togglePasswordVisibility()"
+              type="button"
+            ></button>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+          </mat-form-field>
+
+          <div class="error-message" *ngIf="errorMessage">
+            <mat-icon>error</mat-icon> {{ errorMessage }}
+          </div>
+
+          <button
+            mat-raised-button
+            class="login-button"
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="navbar-left">
+   
+    <span class="app-title">🐄 Cattle Manager</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <a mat-button routerLink="/" routerLinkActive="active">
+    <span>Home</span>
+  </a>
+
+  <button mat-button [matMenuTriggerFor]="userMenu">
+    <span>{{ user?.username || "User" }}</span>
+  </button>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item disabled>
+      <span>{{ user?.username }}</span>
+    </button>
+    <button mat-menu-item disabled *ngIf="user?.email">
+      <span>{{ user.email }}</span>
+    </button>
+  </mat-menu>
+
+  <button mat-button (click)="logout()">
+    <span>Logout</span>
+  </button>
+</mat-toolbar>
