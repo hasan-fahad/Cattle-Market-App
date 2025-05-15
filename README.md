@@ -1,6 +1,6 @@
 # Eid-ul-Adha Cattle Market Management System
 
-![Cattle Market App Screenshot]
+
 
 A modern web application for managing cattle listings during the Eid-ul-Adha season, built with Angular and Bootstrap 5.
 ### Live Link: https://cattle-market-app.netlify.app
